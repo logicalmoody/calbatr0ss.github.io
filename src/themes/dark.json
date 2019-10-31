@@ -1,0 +1,15 @@
+{
+    "palette": {
+        "type": "dark",
+        "background": {
+            "paper": "#fff",
+            "default": "#282c34"
+        },
+        "primary": {
+            "main": "#607d8b"
+        },
+        "secondary": {
+            "main": "#448aff"
+        }
+    }
+}

@@ -5,8 +5,8 @@ export default function Bio() {
     return (
         <>
             <Typography>
-                Hi! I'm Calvin Moody, a UI software engineer, currently employed at The Home Depot. I like building
-                things in React.
+                Hi! I'm Calvin Moody, a Full Stack software engineer, currently employed at The Home Depot. I like
+                building things in React.
             </Typography>
         </>
     )
