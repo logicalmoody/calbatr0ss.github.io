@@ -1,9 +1,8 @@
 import React from "react"
-import { render } from "@testing-library/react"
-import "@testing-library/jest-dom/extend-expect"
+import { render, screen } from "@testing-library/react"
 import Links from "components/Links"
 
 it("should render a GitHub link", () => {
-    const { getByTestId } = render(<Links />)
-    expect(getByTestId("github")).toBeInTheDocument()
+    render(<Links />)
+    expect(screen.getByTestId("github")).toBeInTheDocument()
 })

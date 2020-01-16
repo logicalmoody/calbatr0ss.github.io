@@ -1,9 +1,7 @@
 import React from "react"
 import Box from "@material-ui/core/Box"
 import Link from "@material-ui/core/Link"
-
-const gitHubUrl = "https://github.com/calbatr0ss"
-const twitterUrl = "https://twitter.com/calbatr0ss"
+import { gitHubUrl, twitterUrl } from "constants/constants"
 
 export default function Links() {
     return (
