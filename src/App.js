@@ -1,12 +1,10 @@
 import React, { useState } from "react"
 import { makeStyles, ThemeProvider } from "@material-ui/styles"
 import Box from "@material-ui/core/Box"
-// import Button from "@material-ui/core/Button"
 import IconButton from "@material-ui/core/IconButton"
 import Typography from "@material-ui/core/Typography"
 import cal from "assets/cal.jpg"
-import Bio from "components/Bio"
-import Links from "components/Links"
+import Page from "components/Page"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Tooltip from "@material-ui/core/Tooltip"
@@ -28,8 +26,6 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
-        fontSize: "calc(10px + 2vmin)",
         color: theme => theme.palette.text.primary
     },
     cal: {
@@ -38,6 +34,11 @@ const useStyles = makeStyles({
     },
     title: {
         flex: "1 0 auto"
+    },
+    hero: {
+        padding: "10vw",
+        display: "flex",
+        justifyContent: "space-between"
     }
 })
 
@@ -52,13 +53,13 @@ export default function App() {
 
     return (
         <ThemeProvider theme={theme}>
-            <AppBar>
+            <AppBar position="sticky">
                 <Toolbar>
                     <Box className={classes.title}>
                         <Typography>Calvin Moody</Typography>
                     </Box>
-                    <Tooltip title="Toggle Theme" enterDelay={300}>
-                        <IconButton color="inherit" onClick={toggleTheme} aria-label="toggle theme">
+                    <Tooltip title={theme.palette.type === "light" ? "Dark Theme" : "Light Theme"} enterDelay={300}>
+                        <IconButton onClick={toggleTheme} aria-label="toggle theme" data-testid="toggle-theme">
                             <Brightness4 />
                         </IconButton>
                     </Tooltip>
@@ -66,14 +67,13 @@ export default function App() {
             </AppBar>
             <div className={classes.root}>
                 <header className={classes.header}>
-                    <Box display="flex" flexDirection="row">
+                    <Box display="flex" flexDirection="row" className={classes.hero}>
                         <Typography variant="h3">Calvin McLean Moody</Typography>
-                        <Box>
-                            <img src={cal} className={classes.cal} alt="Calvin Moody" />
-                        </Box>
+                        <img src={cal} className={classes.cal} alt="Calvin Moody" />
                     </Box>
-                    <Links />
-                    <Bio />
+                    <Box padding="5vw">
+                        <Page />
+                    </Box>
                 </header>
             </div>
         </ThemeProvider>

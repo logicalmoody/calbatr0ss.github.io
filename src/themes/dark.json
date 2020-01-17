@@ -2,7 +2,7 @@
     "palette": {
         "type": "dark",
         "background": {
-            "paper": "#fff",
+            "paper": "#263238",
             "default": "#282c34"
         },
         "primary": {
