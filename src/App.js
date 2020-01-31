@@ -3,15 +3,17 @@ import { makeStyles, ThemeProvider } from "@material-ui/styles"
 import Box from "@material-ui/core/Box"
 import IconButton from "@material-ui/core/IconButton"
 import Typography from "@material-ui/core/Typography"
-import cal from "assets/cal.jpg"
-import Page from "components/Page"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Tooltip from "@material-ui/core/Tooltip"
 import { createMuiTheme } from "@material-ui/core/styles"
+import Brightness4 from "@material-ui/icons/Brightness4"
 import light from "themes/light.json"
 import dark from "themes/dark.json"
-import Brightness4 from "@material-ui/icons/Brightness4"
+import Bio from "components/Bio"
+import Hero from "components/Hero"
+import Links from "components/Links"
+import Page from "components/Page"
 
 const lightTheme = createMuiTheme(light)
 const darkTheme = createMuiTheme(dark)
@@ -70,12 +72,12 @@ export default function App() {
 			</AppBar>
 			<div className={classes.root}>
 				<header className={classes.header}>
-					<Box display="flex" flexDirection="row" className={classes.hero}>
-						<Typography variant="h3">Calvin McLean Moody</Typography>
-						<img src={cal} className={classes.cal} alt="Calvin Moody" />
-					</Box>
-					<Box padding="5vw">
-						<Page />
+					<Hero />
+					<Box padding="3vw">
+						<Page>
+							<Links />
+							<Bio />
+						</Page>
 					</Box>
 				</header>
 			</div>
