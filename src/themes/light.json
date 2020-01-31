@@ -1,15 +1,15 @@
 {
-    "palette": {
-        "type": "light",
-        "background": {
-            "paper": "#fff",
-            "default": "#fafafa"
-        },
-        "primary": {
-            "main": "#607d8b"
-        },
-        "secondary": {
-            "main": "#448aff"
-        }
-    }
+	"palette": {
+		"type": "light",
+		"background": {
+			"paper": "#fff",
+			"default": "#fafafa"
+		},
+		"primary": {
+			"main": "#607d8b"
+		},
+		"secondary": {
+			"main": "#448aff"
+		}
+	}
 }
