@@ -11,7 +11,9 @@
 	},
 	"devDependencies": {
 		"@testing-library/jest-dom": "^4.1.0",
-		"@testing-library/react": "^9.3.0"
+		"@testing-library/react": "^9.3.0",
+		"jest-axe": "^3.3.0",
+		"jest-in-case": "^1.0.2"
 	},
 	"scripts": {
 		"start": "react-scripts start",

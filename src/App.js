@@ -1,22 +1,13 @@
 import React, { useState } from "react"
 import { makeStyles, ThemeProvider } from "@material-ui/styles"
 import Box from "@material-ui/core/Box"
-import IconButton from "@material-ui/core/IconButton"
-import Typography from "@material-ui/core/Typography"
-import AppBar from "@material-ui/core/AppBar"
-import Toolbar from "@material-ui/core/Toolbar"
-import Tooltip from "@material-ui/core/Tooltip"
-import { createMuiTheme } from "@material-ui/core/styles"
-import Brightness4 from "@material-ui/icons/Brightness4"
-import light from "themes/light.json"
-import dark from "themes/dark.json"
+import Container from "@material-ui/core/Container"
+import { lightTheme, darkTheme } from "themes/theme"
 import Bio from "components/Bio"
 import Hero from "components/Hero"
 import Links from "components/Links"
 import Page from "components/Page"
-
-const lightTheme = createMuiTheme(light)
-const darkTheme = createMuiTheme(dark)
+import NavBar from "components/NavBar"
 
 const useStyles = makeStyles({
 	root: {
@@ -34,9 +25,6 @@ const useStyles = makeStyles({
 		height: "20vmin",
 		borderRadius: "25%"
 	},
-	title: {
-		flex: "1 0 auto"
-	},
 	hero: {
 		padding: "10vw",
 		display: "flex",
@@ -49,36 +37,23 @@ export default function App() {
 	const [theme, setTheme] = useState(lightTheme)
 	const classes = useStyles(theme)
 
-	function toggleTheme() {
+	const toggleTheme = () =>
 		theme.palette.type === "light" ? setTheme(darkTheme) : setTheme(lightTheme)
-	}
 
 	return (
 		<ThemeProvider theme={theme}>
-			<AppBar position="sticky">
-				<Toolbar>
-					<Box className={classes.title}>
-						<Typography>Calvin Moody</Typography>
-					</Box>
-					<Tooltip
-						title={theme.palette.type === "light" ? "Dark Theme" : "Light Theme"}
-						enterDelay={300}
-					>
-						<IconButton onClick={toggleTheme} aria-label="toggle theme" data-testid="toggle-theme">
-							<Brightness4 />
-						</IconButton>
-					</Tooltip>
-				</Toolbar>
-			</AppBar>
+			<NavBar toggleTheme={toggleTheme} />
 			<div className={classes.root}>
 				<header className={classes.header}>
-					<Hero />
-					<Box padding="3vw">
-						<Page>
-							<Links />
-							<Bio />
-						</Page>
-					</Box>
+					<Container style={{ maxWidth: 800 }}>
+						<Hero />
+						<Box style={{ padding: "3vw" }}>
+							<Page>
+								<Bio />
+								<Links />
+							</Page>
+						</Box>
+					</Container>
 				</header>
 			</div>
 		</ThemeProvider>

@@ -1,18 +1,19 @@
 import React from "react"
-import { render, screen } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import Hero from "components/Hero"
 
 describe("<Hero />", () => {
+	let c
 	beforeEach(() => {
-		render(<Hero />)
+		c = render(<Hero />)
 	})
 
-	it("should render my full name", () => {
-		expect(screen.getByText("Calvin McLean Moody")).toBeInTheDocument()
+	it("should render my name", () => {
+		expect(c.getByText(/Cal/)).toBeInTheDocument()
 	})
 
 	it("should render a hero image with alt text", () => {
-		expect(screen.getByTestId("hero-image")).toBeInTheDocument()
-		expect(screen.getByTestId("hero-image")).toHaveAttribute("alt", "Calvin Moody")
+		expect(c.getByTestId("hero-image")).toBeInTheDocument()
+		expect(c.getByTestId("hero-image")).toHaveAttribute("alt", "Calvin Moody")
 	})
 })

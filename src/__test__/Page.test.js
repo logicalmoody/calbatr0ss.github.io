@@ -1,11 +1,12 @@
 import React from "react"
-import { render, screen } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import Page from "components/Page"
 
 describe("<Page />", () => {
+	let c
 	it("should render a paper", () => {
-		render(<Page />)
-		expect(screen.getByTestId("page-paper")).toBeInTheDocument()
+		c = render(<Page />)
+		expect(c.getByTestId("page-paper")).toBeInTheDocument()
 	})
 
 	it("should render children", () => {
@@ -14,6 +15,6 @@ describe("<Page />", () => {
 				<p>Test paragraph</p>
 			</Page>
 		)
-		expect(screen.getByText(/test paragraph/i)).toBeInTheDocument()
+		expect(c.getByText(/test paragraph/i)).toBeInTheDocument()
 	})
 })

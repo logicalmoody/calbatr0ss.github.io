@@ -1,7 +1,6 @@
 import React from "react"
 import cal from "assets/cal.jpg"
 import Box from "@material-ui/core/Box"
-import Container from "@material-ui/core/Container"
 import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/styles"
 
@@ -20,13 +19,14 @@ const useStyles = makeStyles(theme => ({
 export default function Hero() {
 	const classes = useStyles()
 	return (
-		<Container>
-			<Box display="flex" flexDirection="row" className={classes.hero}>
-				<Box display="flex" alignItems="center">
-					<Typography variant="h3">Calvin McLean Moody</Typography>
-				</Box>
-				<img src={cal} className={classes.cal} alt="Calvin Moody" data-testid="hero-image" />
+		<Box display="flex" flexDirection="row" className={classes.hero}>
+			<Box display="flex" alignItems="center">
+				<Typography variant="h3">
+					Hi, I'm Cal. I'm a software engineer with a focus user interfaces as well as an amateur
+					photographer.
+				</Typography>
 			</Box>
-		</Container>
+			<img src={cal} className={classes.cal} alt="Calvin Moody" data-testid="hero-image" />
+		</Box>
 	)
 }
