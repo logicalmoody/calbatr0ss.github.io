@@ -9,7 +9,7 @@ export default function Links() {
 	return (
 		<Box display="flex" flexDirection="row" justifyContent="space-evenly" pt={3}>
 			<Link href={resumeUrl} target="_blank" rel="noopener">
-				<Button variant="contained" color="primary" startIcon={<DescriptionIcon />}>
+				<Button variant="contained" color="secondary" startIcon={<DescriptionIcon />}>
 					Resume
 				</Button>
 			</Link>

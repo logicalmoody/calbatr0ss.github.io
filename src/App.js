@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { makeStyles, ThemeProvider } from "@material-ui/styles"
-import Box from "@material-ui/core/Box"
 import Container from "@material-ui/core/Container"
 import { lightTheme, darkTheme } from "themes/theme"
 import Bio from "components/Bio"
@@ -21,18 +20,9 @@ const useStyles = makeStyles({
 		alignItems: "center",
 		color: theme => theme.palette.text.primary
 	},
-	cal: {
-		height: "20vmin",
-		borderRadius: "25%"
-	},
-	hero: {
-		padding: "10vw",
-		display: "flex",
-		justifyContent: "space-between"
-	}
+	container: { maxWidth: 800 }
 })
 
-// TODO: favicon?
 export default function App() {
 	const [theme, setTheme] = useState(lightTheme)
 	const classes = useStyles(theme)
@@ -45,14 +35,12 @@ export default function App() {
 			<NavBar toggleTheme={toggleTheme} />
 			<div className={classes.root}>
 				<header className={classes.header}>
-					<Container style={{ maxWidth: 800 }}>
+					<Container className={classes.container}>
 						<Hero />
-						<Box style={{ padding: "3vw" }}>
-							<Page>
-								<Bio />
-								<Links />
-							</Page>
-						</Box>
+						<Page>
+							<Bio />
+							<Links />
+						</Page>
 					</Container>
 				</header>
 			</div>

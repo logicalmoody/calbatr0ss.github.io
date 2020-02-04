@@ -18,7 +18,8 @@ const theme = {
 			fontFamily: ["'Open Sans'", ...fonts].join(",")
 		},
 		button: {
-			fontFamily: ["'Open Sans'", ...fonts].join(",")
+			fontFamily: ["'Open Sans'", ...fonts].join(","),
+			fontWeight: 600
 		},
 		fontFamily: ["'Fjalla One'", "'Open Sans'", ...fonts].join(",")
 	}

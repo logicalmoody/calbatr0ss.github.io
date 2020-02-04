@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper"
 
 const useStyles = makeStyles(theme => ({
 	paper: {
-		padding: "3vw",
+		padding: 35,
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center"
