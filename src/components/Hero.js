@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 		borderRadius: "25%"
 	},
 	hero: {
-		margin: "50px 0",
+		margin: "48px 0",
 		display: "flex",
 		justifyContent: "space-between"
 	}

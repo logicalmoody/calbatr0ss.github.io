@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 		alignItems: "center",
 		color: theme => theme.palette.text.primary
 	},
-	container: { maxWidth: 800 }
+	container: { maxWidth: 800, margin: 24 }
 })
 
 export default function App() {
