@@ -2,9 +2,11 @@
 	"name": "my-brand",
 	"version": "0.1.0",
 	"private": true,
+	"homepage": "https://calbatr0ss.github.io/",
 	"dependencies": {
 		"@material-ui/core": "^4.5.0",
 		"@material-ui/icons": "^4.5.1",
+		"gh-pages": "^2.2.0",
 		"react": "^16.10.2",
 		"react-dom": "^16.10.2",
 		"react-scripts": "^3.3.1"
@@ -19,6 +21,8 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
 		"eject": "react-scripts eject",
 		"format": "prettier --ignore-path .gitignore --write \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)\""
 	},
@@ -26,16 +30,8 @@
 		"extends": "react-app"
 	},
 	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
+		"production": [">0.2%", "not dead", "not op_mini all"],
+		"development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
 	},
 	"prettier": {
 		"semi": false,

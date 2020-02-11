@@ -28,8 +28,7 @@ export default function Hero() {
 			</Box>
 			<Box display="flex" alignItems="center" pt={3}>
 				<Typography variant="h3">
-					Hi, I'm Cal. I'm a software engineer with a focus user interfaces as well as an amateur
-					photographer.
+					Hi, I'm Cal. I'm a software engineer and amateur photographer.
 				</Typography>
 			</Box>
 		</Box>
