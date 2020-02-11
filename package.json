@@ -2,7 +2,7 @@
 	"name": "my-brand",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://calbatr0ss.github.io/web",
+	"homepage": "https://calbatr0ss.github.io",
 	"dependencies": {
 		"@material-ui/core": "^4.5.0",
 		"@material-ui/icons": "^4.5.1",
