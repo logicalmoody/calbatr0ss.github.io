@@ -4,19 +4,19 @@ import Box from "@material-ui/core/Box"
 import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/styles"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
 	cal: {
 		height: "25vmin",
 		width: "25vmin",
 		minHeight: "175px",
 		minWidth: "175px",
-		borderRadius: "25%"
+		borderRadius: "25%",
 	},
 	hero: {
 		margin: "48px 0",
 		display: "flex",
-		justifyContent: "space-between"
-	}
+		justifyContent: "space-between",
+	},
 }))
 
 export default function Hero() {
@@ -27,9 +27,7 @@ export default function Hero() {
 				<img src={cal} className={classes.cal} alt="Calvin Moody" data-testid="hero-image" />
 			</Box>
 			<Box display="flex" alignItems="center" pt={3}>
-				<Typography variant="h3">
-					Hi, I'm Cal. I'm a software engineer and amateur photographer.
-				</Typography>
+				<Typography variant="h3">Hi, I'm Cal. I'm a software engineer and photographer.</Typography>
 			</Box>
 		</Box>
 	)
