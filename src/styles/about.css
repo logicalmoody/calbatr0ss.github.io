@@ -1,0 +1,8 @@
+.hero {
+	height: 25vmin;
+	width: 25vmin;
+	min-height: 175px;
+	min-width: 175px;
+	border-radius: 25%;
+	margin: auto auto 24px auto;
+}

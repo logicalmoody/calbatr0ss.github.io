@@ -1,0 +1,16 @@
+footer {
+	width: 100%;
+}
+
+.footer-content {
+	background-color: #cccccc;
+	/* TODO make flex left align on mobile properly */
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.footer-block {
+	padding: 16px;
+	width: 300px;
+}

@@ -1,0 +1,15 @@
+body {
+	margin: 0;
+}
+
+.page-container {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.page-content {
+	margin-top: 24px;
+	margin-bottom: 24px;
+	flex: 1;
+}
