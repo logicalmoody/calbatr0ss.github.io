@@ -24,7 +24,7 @@ export const imagesQuery = graphql`
 						thumb: fluid(maxWidth: 270, maxHeight: 270) {
 							...GatsbyImageSharpFluid
 						}
-						full: fluid(maxWidth: 3000) {
+						full: fluid(maxWidth: 2048) {
 							...GatsbyImageSharpFluid
 						}
 					}
