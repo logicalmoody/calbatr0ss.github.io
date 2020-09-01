@@ -7,15 +7,19 @@
 module.exports = {
 	/* Your site config here */
 	siteMetadata: {
-		title: "The CalZone",
+		title: "Calvin Moody",
+		description: "Calvin Moody's personal website",
+		url: "calbatr0ss.github.io",
+		titleTemplate: `%s | Calvin Moody`,
 		twitterUsername: "@calbatr0ss",
 	},
 	plugins: [
+		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-material-ui`,
 		{
 			resolve: `gatsby-plugin-google-fonts`,
 			options: {
-				fonts: [`Open Sans`, `Raleway`],
+				fonts: [`Open Sans`],
 				display: "swap",
 			},
 		},

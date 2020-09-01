@@ -12,7 +12,6 @@ import Toolbar from "@material-ui/core/Toolbar"
 import MenuIcon from "@material-ui/icons/Menu"
 import MessageIcon from "@material-ui/icons/Message"
 import CameraIcon from "@material-ui/icons/PhotoCamera"
-import PersonIcon from "@material-ui/icons/Person"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
 import "../styles/nav-bar.css"
 
@@ -55,7 +54,6 @@ export default function NavBar() {
 				icon={<CameraIcon />}
 				style={{ margin: "0 16px 0 16px" }}
 			/>
-			<NavBarButton mobile={mobile} link="/about" title="About" icon={<PersonIcon />} />
 		</>
 	)
 

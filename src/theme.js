@@ -25,7 +25,7 @@ const theme = {
 			fontWeight: 600,
 			textTransform: "none",
 		},
-		fontFamily: ["'Raleway'", "'Open Sans'", ...fonts].join(","),
+		fontFamily: ["'Open Sans'", ...fonts].join(","),
 	},
 	palette: {
 		type: "light",

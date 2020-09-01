@@ -3,16 +3,23 @@ import { graphql } from "gatsby"
 import Typography from "@material-ui/core/Typography"
 import Link from "@material-ui/core/Link"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 export default function Blog({ data }) {
 	const posts = data.allMarkdownRemark.edges
 
 	return (
 		<Layout>
-			<Typography variant="h5" component="h1">
+			<SEO
+				title="Blog"
+				description="The CalZone"
+				// image={post.frontmatter.image.childImageSharp.sizes.src}
+				pathname="/blog"
+			/>
+			<Typography variant="h3">The CalZone</Typography>
+			<Typography variant="subtitle1" gutterBottom>
 				I write about stuff I learn, projects I work on, or thoughts I feel are worth sharing.
 			</Typography>
-			<br />
 			{posts.map(({ node }) => {
 				const slug = node.frontmatter.slug
 				const title = node.frontmatter.title || slug

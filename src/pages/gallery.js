@@ -3,14 +3,27 @@ import { graphql } from "gatsby"
 import Typography from "@material-ui/core/Typography"
 import Layout from "../components/layout"
 import ImageGallery from "@browniebroke/gatsby-image-gallery"
+import SEO from "../components/seo"
 
 export default function Gallery({ data }) {
 	const images = data.images.edges.map(({ node }) => node.childImageSharp)
 
 	return (
 		<Layout>
-			<Typography variant="h3">Welcome to the photo gallery!</Typography>
-			<ImageGallery images={images} />
+			<SEO
+				title="Photo Gallery"
+				description="Calvin Moody's photo gallery"
+				// image={post.frontmatter.image.childImageSharp.sizes.src}
+				pathname="/gallery"
+			/>
+			<div style={{ textAlign: "center" }}>
+				<Typography variant="h3" gutterBottom>
+					Photo Gallery
+				</Typography>
+				<div>
+					<ImageGallery images={images} />
+				</div>
+			</div>
 		</Layout>
 	)
 }
