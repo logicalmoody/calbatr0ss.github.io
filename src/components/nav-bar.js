@@ -52,7 +52,7 @@ export default function NavBar() {
 				link="/gallery"
 				title="Photo Gallery"
 				icon={<CameraIcon />}
-				style={{ margin: "0 16px 0 16px" }}
+				style={{ marginLeft: 16 }}
 			/>
 		</>
 	)

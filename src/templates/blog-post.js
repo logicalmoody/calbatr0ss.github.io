@@ -7,7 +7,6 @@ import SEO from "../components/seo"
 
 export default function BlogPost({ data }) {
 	const post = data.markdownRemark
-	console.log(post)
 	return (
 		<Layout>
 			<SEO
@@ -18,11 +17,11 @@ export default function BlogPost({ data }) {
 				article
 			/>
 			<Typography variant="h3">{post.frontmatter.title}</Typography>
-			<Typography variant="subtitle2">{post.frontmatter.date}</Typography>
-			<Typography variant="subtitle1" gutterBottom>
-				{post.frontmatter.description}
+			<Typography variant="subtitle1">{post.frontmatter.description}</Typography>
+			<Typography variant="subtitle2" gutterBottom>
+				{post.frontmatter.date}
 			</Typography>
-			<Typography dangerouslySetInnerHTML={{ __html: post.html }} />
+			<div dangerouslySetInnerHTML={{ __html: post.html }} />
 		</Layout>
 	)
 }
