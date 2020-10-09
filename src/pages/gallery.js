@@ -12,7 +12,7 @@ export default function Gallery({ data }) {
 		<Layout>
 			<SEO
 				title="Photo Gallery"
-				description="Calvin Moody's photo gallery"
+				description="Calvin Moody photo gallery"
 				// image={post.frontmatter.image.childImageSharp.sizes.src}
 				pathname="/gallery"
 			/>
