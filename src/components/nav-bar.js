@@ -12,22 +12,31 @@ import Toolbar from "@material-ui/core/Toolbar"
 import MenuIcon from "@material-ui/icons/Menu"
 import MessageIcon from "@material-ui/icons/Message"
 import CameraIcon from "@material-ui/icons/PhotoCamera"
+import DescriptionIcon from "@material-ui/icons/Description"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
+import { resumeUrl } from "../constants"
 import "../styles/nav-bar.css"
 
 const linkStyle = { color: "white" }
 
-function NavBarButton({ mobile, title, link, icon, style, ...otherProps }) {
+function NavBarButton({ mobile, title, link, newTab, icon, style, ...otherProps }) {
+	const target = newTab ? "_blank" : undefined
 	if (mobile) {
 		return (
-			<ListItem button component="a" href={link} rel="noopener" {...otherProps}>
+			<ListItem button component="a" href={link} target={target} {...otherProps}>
 				<ListItemIcon>{icon}</ListItemIcon>
 				<ListItemText primary={title} />
 			</ListItem>
 		)
 	}
 	return (
-		<Button href={link} style={{ ...linkStyle, ...style }} startIcon={icon} {...otherProps}>
+		<Button
+			href={link}
+			target={target}
+			style={{ ...linkStyle, ...style }}
+			startIcon={icon}
+			{...otherProps}
+		>
 			{title}
 		</Button>
 	)
@@ -52,6 +61,14 @@ export default function NavBar() {
 				link="/gallery"
 				title="Photo Gallery"
 				icon={<CameraIcon />}
+				style={{ marginLeft: 16 }}
+			/>
+			<NavBarButton
+				mobile={mobile}
+				link={resumeUrl}
+				newTab
+				title="Resume"
+				icon={<DescriptionIcon />}
 				style={{ marginLeft: 16 }}
 			/>
 		</>

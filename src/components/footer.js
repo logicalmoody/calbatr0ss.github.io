@@ -8,7 +8,7 @@ import InstagramIcon from "@material-ui/icons/Instagram"
 import TwitterIcon from "@material-ui/icons/Twitter"
 import ControllerIcon from "@material-ui/icons/VideogameAsset"
 import LinkedInIcon from "@material-ui/icons/LinkedIn"
-import { gitHubUrl, instagramUrl, twitterUrl, linkedInUrl, itchUrl, resumeUrl } from "../constants"
+import { gitHubUrl, instagramUrl, twitterUrl, linkedInUrl, itchUrl } from "../constants"
 import "../styles/footer.css"
 
 function FooterIconButton({ title, link, icon }) {
@@ -36,37 +36,8 @@ export default function Footer() {
 					<Typography>
 						<Link href="mailto:calvinmcm@gmail.com">calvinmcm@gmail.com</Link>
 					</Typography>
-					<Typography>
-						<Link href={resumeUrl} target="_blank" rel="noopener">
-							Check out my Résumé
-						</Link>
-					</Typography>
+					<Typography variant="body2">© All Rights Reserved</Typography>
 				</div>
-				{/* <div className="footer-block">
-					<Typography variant="h6">Sitemap</Typography>
-					<ul style={{ margin: 0 }}>
-						<li>
-							<Typography component={Link} href="/">
-								Home
-							</Typography>
-						</li>
-						<li>
-							<Typography component={Link} href="/gallery">
-								Gallery
-							</Typography>
-						</li>
-						<li>
-							<Typography component={Link} href="/blog">
-								Blog
-							</Typography>
-						</li>
-						<li>
-							<Typography component={Link} href="/about">
-								About
-							</Typography>
-						</li>
-					</ul>
-				</div> */}
 				<div className="footer-block">
 					<Typography variant="h6">Find me on the web</Typography>
 					<FooterIconButton title="LinkedIn" link={linkedInUrl} icon={<LinkedInIcon />} />
