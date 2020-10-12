@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
+import Box from "@material-ui/core/Box"
 import Typography from "@material-ui/core/Typography"
 import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
 import Chip from "@material-ui/core/Chip"
 import Link from "@material-ui/core/Link"
+import FilterListIcon from "@material-ui/icons/FilterList"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -64,58 +66,61 @@ export default function Blog({ data }) {
 				I write about stuff I learn, projects I work on, or thoughts I feel are worth sharing.
 			</Typography>
 
-			{[...allTags].map((tag) => (
-				<Chip
-					key={`filter-chip-${tag}`}
-					label={tag}
-					clickable
-					color={filters.has(tag) ? "primary" : undefined}
-					onClick={handleClick(tag)}
-					style={{ margin: "16px 8px" }}
-				/>
-			))}
+			<Box display="flex" alignItems="center">
+				<FilterListIcon />
+				{[...allTags].map((tag) => (
+					<Chip
+						key={`filter-chip-${tag}`}
+						label={tag}
+						clickable
+						color={filters.has(tag) ? "primary" : undefined}
+						onClick={handleClick(tag)}
+						style={{ margin: "16px 8px" }}
+					/>
+				))}
+			</Box>
 
 			{/* <div style={{ display: "flex" }}> */}
 			{posts.map(({ node }) => {
 				const slug = node.frontmatter.slug
 				const title = node.frontmatter.title || slug
 				return (
-					// <Card style={{ width: 300, margin: 8 }}>
-					// 	<article>
-					// 		<CardContent>
-					// 			<header>
-					// 				<Typography variant="h5">
-					// 					<Link href={slug}>{title}</Link>
-					// 				</Typography>
-					// 				<Typography variant="subtitle2" gutterBottom>
-					// 					{node.frontmatter.date}
-					// 				</Typography>
-					// 			</header>
-					// 			<section>
-					// 				<Typography
-					// 					dangerouslySetInnerHTML={{
-					// 						__html: node.frontmatter.description || node.excerpt,
-					// 					}}
-					// 				/>
-					// 			</section>
-					// 		</CardContent>
-					// 	</article>
-					// </Card>
-					<article key={slug} style={{ paddingBottom: 24 }}>
-						<header>
-							<Typography variant="h4">
-								<Link href={slug}>{title}</Link>
-							</Typography>
-							<Typography variant="subtitle2">{node.frontmatter.date}</Typography>
-						</header>
-						<section>
-							<Typography
-								dangerouslySetInnerHTML={{
-									__html: node.frontmatter.description || node.excerpt,
-								}}
-							/>
-						</section>
-					</article>
+					<Card style={{ width: 300, margin: 8 }}>
+						<article>
+							<CardContent>
+								<header>
+									<Typography variant="h5">
+										<Link href={slug}>{title}</Link>
+									</Typography>
+									<Typography variant="subtitle2" gutterBottom>
+										{node.frontmatter.date}
+									</Typography>
+								</header>
+								<section>
+									<Typography
+										dangerouslySetInnerHTML={{
+											__html: node.frontmatter.description || node.excerpt,
+										}}
+									/>
+								</section>
+							</CardContent>
+						</article>
+					</Card>
+					// <article key={slug} style={{ paddingBottom: 24 }}>
+					// 	<header>
+					// 		<Typography variant="h4">
+					// 			<Link href={slug}>{title}</Link>
+					// 		</Typography>
+					// 		<Typography variant="subtitle2">{node.frontmatter.date}</Typography>
+					// 	</header>
+					// 	<section>
+					// 		<Typography
+					// 			dangerouslySetInnerHTML={{
+					// 				__html: node.frontmatter.description || node.excerpt,
+					// 			}}
+					// 		/>
+					// 	</section>
+					// </article>
 				)
 			})}
 			{/* </div> */}
