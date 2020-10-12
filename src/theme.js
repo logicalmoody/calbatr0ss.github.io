@@ -1,8 +1,7 @@
 import { createMuiTheme } from "@material-ui/core/styles"
 
 const fonts = ["sans-serif", '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"']
-
-const theme = {
+const themeDefinition = {
 	overrides: {
 		MuiTooltip: {
 			tooltip: {
@@ -42,5 +41,7 @@ const theme = {
 	},
 }
 
-const t = createMuiTheme(theme)
-export default t
+export const theme = createMuiTheme(themeDefinition)
+
+export const foucFonts =
+	"https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap"
