@@ -4,9 +4,15 @@ import Typography from "@material-ui/core/Typography"
 import Layout from "../components/layout"
 import ImageGallery from "@browniebroke/gatsby-image-gallery"
 import SEO from "../components/seo"
+import "../styles/gallery.css"
 
 export default function Gallery({ data }) {
-	const images = data.images.edges.map(({ node }) => node.childImageSharp)
+	const images = data.images.edges.map(({ node: { frontmatter } }) => ({
+		title: frontmatter.title,
+		caption: frontmatter.caption,
+		thumbAlt: frontmatter.title,
+		...frontmatter.photo.childImageSharp,
+	}))
 
 	return (
 		<Layout>
@@ -21,7 +27,11 @@ export default function Gallery({ data }) {
 					Photo Gallery
 				</Typography>
 				<div>
-					<ImageGallery images={images} />
+					<ImageGallery
+						images={images}
+						lightboxOptions={{ enableZoom: false, imagePadding: 50 }}
+						imgClass="thumb-image"
+					/>
 				</div>
 			</div>
 		</Layout>
@@ -30,15 +40,26 @@ export default function Gallery({ data }) {
 
 export const imagesQuery = graphql`
 	query ImagesForGallery {
-		images: allFile(filter: { sourceInstanceName: { eq: "gallery" } }, sort: { fields: name }) {
+		images: allMarkdownRemark(
+			filter: { frontmatter: { slug: { regex: "//gallery//" } } }
+			sort: { fields: frontmatter___date, order: DESC }
+		) {
 			edges {
 				node {
-					childImageSharp {
-						thumb: fluid(maxWidth: 270, maxHeight: 270) {
-							...GatsbyImageSharpFluid
-						}
-						full: fluid(maxWidth: 2048) {
-							...GatsbyImageSharpFluid
+					frontmatter {
+						date(formatString: "MMMM DD, YYYY")
+						slug
+						title
+						caption
+						photo {
+							childImageSharp {
+								thumb: fluid(maxHeight: 270) {
+									...GatsbyImageSharpFluid
+								}
+								full: fluid(maxWidth: 2048) {
+									...GatsbyImageSharpFluid
+								}
+							}
 						}
 					}
 				}

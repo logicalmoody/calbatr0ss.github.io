@@ -7,16 +7,16 @@ import "../styles/home.css"
 import SEO from "../components/seo"
 
 export default function Home({ data }) {
-	const calHero = data.images.edges.map(({ node }) => node.childImageSharp.fluid)
+	const heroImage = data.image.childImageSharp.fluid
 	return (
 		<Layout>
 			<SEO
 				title="Home"
 				description="Calvin Moody home page"
-				// image={post.frontmatter.image.childImageSharp.sizes.src}
+				image={heroImage.sizes.src}
 				pathname="/"
 			/>
-			<Image fluid={calHero} className="hero" alt="Calvin Moody" data-testid="hero-image" />
+			<Image fluid={heroImage} className="hero" alt="Calvin Moody" data-testid="hero-image" />
 			<div style={{ textAlign: "center" }}>
 				<Typography variant="h3" gutterBottom>
 					Hey, I'm Cal.
@@ -38,14 +38,10 @@ export default function Home({ data }) {
 
 export const heroImageQuery = graphql`
 	query HeroImage {
-		images: allFile(filter: { sourceInstanceName: { eq: "images" }, name: { eq: "cal" } }) {
-			edges {
-				node {
-					childImageSharp {
-						fluid(maxWidth: 500) {
-							...GatsbyImageSharpFluid
-						}
-					}
+		image: file(name: { eq: "cal" }, sourceInstanceName: { eq: "images" }) {
+			childImageSharp {
+				fluid(maxWidth: 500) {
+					...GatsbyImageSharpFluid
 				}
 			}
 		}

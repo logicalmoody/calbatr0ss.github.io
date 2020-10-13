@@ -74,9 +74,9 @@ export default function NavBar() {
 		</>
 	)
 
-	// z-index is set here so it doesn't interfere with the photo gallery lightbox
 	return (
-		<AppBar position="sticky" style={{ zIndex: 999 }}>
+		// z-index is set manually so it doesn't interfere with the photo gallery lightbox
+		<AppBar position="static" style={{ zIndex: 999 }}>
 			<Toolbar>
 				<Typography
 					variant="h6"
