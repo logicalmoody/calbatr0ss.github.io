@@ -1,25 +1,32 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Image from "gatsby-image"
 import Typography from "@material-ui/core/Typography"
-import Layout from "../components/layout"
 import "@browniebroke/gatsby-image-gallery/dist/style.css"
+import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default function BlogPost({ data }) {
 	const post = data.markdownRemark
+	const { title, description, slug, date } = post.frontmatter
+	const image = post.frontmatter.image?.childImageSharp?.fluid
+
 	return (
 		<Layout>
 			<SEO
-				title={post.frontmatter.title}
-				description={post.frontmatter.description || post.excerpt}
-				// image={post.frontmatter.image.childImageSharp.sizes.src}
-				pathname={post.frontmatter.slug}
+				title={title}
+				description={description || post.excerpt}
+				image={image?.src}
+				pathname={slug}
 				article
 			/>
-			<Typography variant="h3">{post.frontmatter.title}</Typography>
-			<Typography variant="subtitle1">{post.frontmatter.description}</Typography>
+			<div style={{ textAlign: "center" }}>
+				<Typography variant="h3">{title}</Typography>
+			</div>
+			{image?.src && <Image fluid={image} alt="A branching tree." />}
+			<Typography variant="subtitle1">{description}</Typography>
 			<Typography variant="subtitle2" gutterBottom>
-				{post.frontmatter.date}
+				Last updated: {date}
 			</Typography>
 			<div dangerouslySetInnerHTML={{ __html: post.html }} />
 		</Layout>
@@ -35,6 +42,13 @@ export const blogPostQuery = graphql`
 				slug
 				title
 				description
+				image {
+					childImageSharp {
+						fluid(maxWidth: 2048) {
+							...GatsbyImageSharpFluid
+						}
+					}
+				}
 			}
 		}
 	}

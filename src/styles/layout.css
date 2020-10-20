@@ -3,6 +3,14 @@ body {
 	font-family: "Open Sans";
 }
 
+code {
+	font-family: "Fira Code", monospace;
+	color: white;
+	background-color: #607d8b;
+	border-radius: 4px;
+	padding: 0 2px;
+}
+
 .page-container {
 	min-height: 100vh;
 	display: flex;
