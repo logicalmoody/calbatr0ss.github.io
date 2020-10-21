@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "calmoody.com",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Calvin Moody's personal website.",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
@@ -12,7 +12,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy": "gatsby build && gh-pages -d public -b master"
+    "deploy": "gatsby build && cp ./CNAME ./public/ && gh-pages -d public -b master"
   },
   "dependencies": {
     "@browniebroke/gatsby-image-gallery": "^3.5.1",

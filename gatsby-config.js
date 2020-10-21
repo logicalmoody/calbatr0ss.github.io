@@ -1,25 +1,19 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
 module.exports = {
-	/* Your site config here */
 	siteMetadata: {
 		title: "Calvin Moody",
 		description: "Calvin Moody's personal website",
-		url: "calbatr0ss.github.io",
+		siteUrl: "https://www.calmoody.com",
 		titleTemplate: `%s | Calvin Moody`,
 		twitterUsername: "@calbatr0ss",
 	},
 	plugins: [
-		`gatsby-plugin-react-helmet`,
+		`gatsby-plugin-top-layout`,
 		`gatsby-plugin-material-ui`,
+		`gatsby-plugin-react-helmet`,
 		{
 			resolve: `gatsby-plugin-google-fonts`,
 			options: {
-				fonts: [`Open Sans`],
+				fonts: [`Open Sans`, `Fira Code`, `Zilla Slab`],
 				display: "swap",
 			},
 		},

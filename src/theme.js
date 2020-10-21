@@ -1,8 +1,7 @@
 import { createMuiTheme } from "@material-ui/core/styles"
 
 const fonts = ["sans-serif", '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"']
-
-const theme = {
+const themeDefinition = {
 	overrides: {
 		MuiTooltip: {
 			tooltip: {
@@ -17,7 +16,23 @@ const theme = {
 		body2: {
 			fontFamily: ["'Open Sans'", ...fonts].join(","),
 		},
+		h1: {
+			fontFamily: ["'Zilla Slab'", ...fonts].join(","),
+		},
+		h2: {
+			fontFamily: ["'Zilla Slab'", ...fonts].join(","),
+		},
+		h3: {
+			fontFamily: ["'Zilla Slab'", ...fonts].join(","),
+		},
+		h4: {
+			fontFamily: ["'Zilla Slab'", ...fonts].join(","),
+		},
+		h5: {
+			fontFamily: ["'Zilla Slab'", ...fonts].join(","),
+		},
 		h6: {
+			fontFamily: ["'Zilla Slab'", ...fonts].join(","),
 			fontWeight: 600,
 		},
 		button: {
@@ -42,5 +57,4 @@ const theme = {
 	},
 }
 
-const t = createMuiTheme(theme)
-export default t
+export const theme = createMuiTheme(themeDefinition)

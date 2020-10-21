@@ -1,6 +1,24 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Zilla Slab";
+}
+
 body {
 	margin: 0;
 	font-family: "Open Sans";
+}
+
+code {
+	font-family: "Fira Code", monospace;
+	color: white;
+	background-color: #607d8b;
+	border-radius: 4px;
+	padding: 0 2px;
+	hyphens: none;
 }
 
 .page-container {

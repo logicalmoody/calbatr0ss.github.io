@@ -65,7 +65,7 @@ const seoQuery = graphql`
 				defaultTitle: title
 				titleTemplate
 				defaultDescription: description
-				siteUrl: url
+				siteUrl
 				twitterUsername
 			}
 		}

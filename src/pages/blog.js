@@ -135,7 +135,10 @@ export const pageQuery = graphql`
 				title
 			}
 		}
-		allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+		allMarkdownRemark(
+			filter: { frontmatter: { slug: { regex: "//blog//" } } }
+			sort: { fields: [frontmatter___date], order: DESC }
+		) {
 			edges {
 				node {
 					excerpt
