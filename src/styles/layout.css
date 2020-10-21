@@ -18,6 +18,7 @@ code {
 	background-color: #607d8b;
 	border-radius: 4px;
 	padding: 0 2px;
+	hyphens: none;
 }
 
 .page-container {

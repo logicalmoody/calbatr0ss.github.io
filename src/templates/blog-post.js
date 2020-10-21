@@ -33,7 +33,10 @@ export default function BlogPost({ data, location }) {
 				</Typography>
 			</div>
 			<hr />
-			<div dangerouslySetInnerHTML={{ __html: post.html }} />
+			<div
+				style={{ overflowWrap: "break-word", wordWrap: "break-word", hyphens: "auto" }}
+				dangerouslySetInnerHTML={{ __html: post.html }}
+			/>
 			<hr />
 			<div style={{ display: "flex" }}>
 				<div style={{ flexGrow: 1 }}>
