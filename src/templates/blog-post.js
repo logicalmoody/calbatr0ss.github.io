@@ -8,10 +8,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { twitterIntentUrl, twitterHandle } from "../constants"
 
-// Fixes the Gatsby build
-const windowGlobal = typeof window !== "undefined" && window
-
-export default function BlogPost({ data }) {
+export default function BlogPost({ data, location }) {
 	const post = data.markdownRemark
 	const { title, description, slug, date } = post.frontmatter
 	const image = post.frontmatter.image?.childImageSharp?.fluid
@@ -40,7 +37,7 @@ export default function BlogPost({ data }) {
 			<div style={{ display: "flex" }}>
 				<div style={{ flexGrow: 1 }}>
 					<Button
-						href={`${twitterIntentUrl}?text=${title}&url=${windowGlobal.location}&via=${twitterHandle}`}
+						href={`${twitterIntentUrl}?text=${title}&url=${location.href}&via=${twitterHandle}`}
 						target="_blank"
 						startIcon={<TwitterIcon style={{ color: "#1DA1F2" }} />}
 						style={{ color: "#1DA1F2" }}
