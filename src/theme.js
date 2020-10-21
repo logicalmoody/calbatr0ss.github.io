@@ -16,7 +16,23 @@ const themeDefinition = {
 		body2: {
 			fontFamily: ["'Open Sans'", ...fonts].join(","),
 		},
+		h1: {
+			fontFamily: ["'Zilla Slab'", ...fonts].join(","),
+		},
+		h2: {
+			fontFamily: ["'Zilla Slab'", ...fonts].join(","),
+		},
+		h3: {
+			fontFamily: ["'Zilla Slab'", ...fonts].join(","),
+		},
+		h4: {
+			fontFamily: ["'Zilla Slab'", ...fonts].join(","),
+		},
+		h5: {
+			fontFamily: ["'Zilla Slab'", ...fonts].join(","),
+		},
 		h6: {
+			fontFamily: ["'Zilla Slab'", ...fonts].join(","),
 			fontWeight: 600,
 		},
 		button: {
@@ -42,6 +58,3 @@ const themeDefinition = {
 }
 
 export const theme = createMuiTheme(themeDefinition)
-
-export const foucFonts =
-	"https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap"

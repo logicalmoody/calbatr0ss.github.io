@@ -2,9 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
 import Typography from "@material-ui/core/Typography"
-import "@browniebroke/gatsby-image-gallery/dist/style.css"
+import Button from "@material-ui/core/Button"
+import TwitterIcon from "@material-ui/icons/Twitter"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { twitterIntentUrl, twitterHandle } from "../constants"
 
 export default function BlogPost({ data }) {
 	const post = data.markdownRemark
@@ -20,15 +22,33 @@ export default function BlogPost({ data }) {
 				pathname={slug}
 				article
 			/>
-			<div style={{ textAlign: "center" }}>
-				<Typography variant="h3">{title}</Typography>
-			</div>
-			{image?.src && <Image fluid={image} alt="A branching tree." />}
-			<Typography variant="subtitle1">{description}</Typography>
-			<Typography variant="subtitle2" gutterBottom>
-				Last updated: {date}
+			<Typography variant="h3" align="center" gutterBottom>
+				{title}
 			</Typography>
+			{image?.src && <Image fluid={image} alt="A branching tree." />}
+			<div style={{ padding: "16px 0" }}>
+				<Typography variant="h5" align="center">
+					<em>{description}</em>
+				</Typography>
+			</div>
+			<hr />
 			<div dangerouslySetInnerHTML={{ __html: post.html }} />
+			<hr />
+			<div style={{ display: "flex" }}>
+				<div style={{ flexGrow: 1 }}>
+					<Button
+						href={`${twitterIntentUrl}?text=${title}&url=${window.location}&via=${twitterHandle}`}
+						target="_blank"
+						startIcon={<TwitterIcon style={{ color: "#1DA1F2" }} />}
+						style={{ color: "#1DA1F2" }}
+					>
+						Share on Twitter
+					</Button>
+				</div>
+				<Typography variant="subtitle2" align="right">
+					Last updated: {date}
+				</Typography>
+			</div>
 		</Layout>
 	)
 }
