@@ -94,7 +94,7 @@ export default function Blog({ data }) {
 				<TextField
 					variant="outlined"
 					size="small"
-					placeholder="Search posts"
+					placeholder="Search blog posts"
 					InputProps={{
 						startAdornment: (
 							<InputAdornment position="start">
@@ -120,33 +120,39 @@ export default function Blog({ data }) {
 				))}
 			</div>
 
-			<div style={{ display: "flex", justifyContent: "center" }}>
-				{posts.map(({ node }) => {
-					const { slug, title, description } = node.frontmatter
-					const image = node.frontmatter.image?.childImageSharp?.fluid
-					return (
-						<Card key={slug} className="card">
-							<article>
-								<CardContent>
-									<header>
-										<Typography variant="h5">
-											<Link href={slug}>{title}</Link>
-										</Typography>
-									</header>
-									<section>
-										<Typography
-											gutterBottom
-											dangerouslySetInnerHTML={{
-												__html: description || node.excerpt,
-											}}
-										/>
-										{image?.src && <Image fluid={image} alt="A branching tree." />}
-									</section>
-								</CardContent>
-							</article>
-						</Card>
-					)
-				})}
+			<div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
+				{posts.length ? (
+					posts.map(({ node }) => {
+						const { slug, title, description } = node.frontmatter
+						const image = node.frontmatter.image?.childImageSharp?.fluid
+						return (
+							<Card key={slug} className="card">
+								<article>
+									<CardContent>
+										<header>
+											<Typography variant="h5">
+												<Link href={slug}>{title}</Link>
+											</Typography>
+										</header>
+										<section>
+											<Typography
+												gutterBottom
+												dangerouslySetInnerHTML={{
+													__html: description || node.excerpt,
+												}}
+											/>
+											{image?.src && <Image fluid={image} alt="A branching tree." />}
+										</section>
+									</CardContent>
+								</article>
+							</Card>
+						)
+					})
+				) : (
+					<Typography variant="subtitle1">
+						<em>No blog posts match selected filters</em>
+					</Typography>
+				)}
 			</div>
 		</Layout>
 	)
