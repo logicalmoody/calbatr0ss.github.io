@@ -2,7 +2,7 @@ module.exports = {
 	siteMetadata: {
 		title: "Calvin Moody",
 		description: "Calvin Moody's personal website",
-		url: "calbatr0ss.github.io",
+		siteUrl: "https://www.calmoody.com",
 		titleTemplate: `%s | Calvin Moody`,
 		twitterUsername: "@calbatr0ss",
 	},

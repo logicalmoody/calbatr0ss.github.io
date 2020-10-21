@@ -12,6 +12,7 @@ export default function BlogPost({ data, location }) {
 	const post = data.markdownRemark
 	const { title, description, slug, date } = post.frontmatter
 	const image = post.frontmatter.image?.childImageSharp?.fluid
+	const url = data.site.siteMetadata.siteUrl + location.pathname
 
 	return (
 		<Layout>
@@ -37,7 +38,7 @@ export default function BlogPost({ data, location }) {
 			<div style={{ display: "flex" }}>
 				<div style={{ flexGrow: 1 }}>
 					<Button
-						href={`${twitterIntentUrl}?text=${title}&url=${location.href}&via=${twitterHandle}`}
+						href={`${twitterIntentUrl}?text=${title}&url=${url}&via=${twitterHandle}`}
 						target="_blank"
 						startIcon={<TwitterIcon style={{ color: "#1DA1F2" }} />}
 						style={{ color: "#1DA1F2" }}
@@ -55,6 +56,11 @@ export default function BlogPost({ data, location }) {
 
 export const blogPostQuery = graphql`
 	query PostBySlug($slug: String!) {
+		site {
+			siteMetadata {
+				siteUrl
+			}
+		}
 		markdownRemark(frontmatter: { slug: { eq: $slug } }) {
 			html
 			frontmatter {
