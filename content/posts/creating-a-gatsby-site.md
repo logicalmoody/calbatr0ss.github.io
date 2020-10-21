@@ -2,7 +2,7 @@
 title: "Creating a Gatsby Site"
 slug: "/blog/creating-a-gatsby-site"
 date: "2020-08-28"
-tags: "tech"
+tags: "tech,gatsby"
 description: "Branching out from Single Page Applications"
 ---
 

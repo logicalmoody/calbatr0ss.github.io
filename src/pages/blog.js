@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
-import Box from "@material-ui/core/Box"
+import Image from "gatsby-image"
 import Typography from "@material-ui/core/Typography"
+import TextField from "@material-ui/core/TextField"
 import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
 import Chip from "@material-ui/core/Chip"
 import Link from "@material-ui/core/Link"
 import FilterListIcon from "@material-ui/icons/FilterList"
+import InputAdornment from "@material-ui/core/InputAdornment"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import "../styles/blog.css"
 
 export default function Blog({ data }) {
 	const allPosts = data.allMarkdownRemark.edges
 	const [allTags, setAllTags] = useState(new Set())
 	const [posts, setPosts] = useState(allPosts)
 	const [filters, setFilters] = useState(new Set())
+	const [filterText, setFilterText] = useState("")
 
 	const handleClick = (filterName) => () => {
 		const newSet = new Set(filters)
@@ -43,31 +47,67 @@ export default function Blog({ data }) {
 	}, [allPosts])
 
 	useEffect(() => {
+		let filteredPosts = allPosts
+
+		// Filter by tags
 		if (filters.size > 0) {
-			const filteredPosts = allPosts.filter(({ node: { frontmatter: { tags } } }) =>
+			filteredPosts = filteredPosts.filter(({ node: { frontmatter: { tags } } }) =>
 				tags.split(",").some((tag) => filters.has(tag))
 			)
-			setPosts(filteredPosts)
-		} else {
-			setPosts(allPosts)
 		}
-	}, [filters, allPosts])
+
+		// Filter by search text
+		if (filterText) {
+			const cleanFilterText = filterText.toLowerCase().trim()
+			filteredPosts = filteredPosts.filter(
+				({
+					node: {
+						frontmatter: { title, description },
+					},
+				}) =>
+					title.toLowerCase().includes(cleanFilterText) ||
+					description.toLowerCase().includes(cleanFilterText)
+			)
+		}
+
+		setPosts(filteredPosts)
+	}, [filters, filterText, allPosts])
 
 	return (
 		<Layout>
-			<SEO
-				title="Blog"
-				description="The CalZone"
-				// image={post.frontmatter.image.childImageSharp.sizes.src}
-				pathname="/blog"
-			/>
-			<Typography variant="h3">The CalZone</Typography>
-			<Typography variant="subtitle1">
+			<SEO title="Blog" description="The CalZone" pathname="/blog" />
+			<Typography variant="h3" align="center">
+				The CalZone
+			</Typography>
+			<Typography variant="subtitle1" align="center">
 				I write about stuff I learn, projects I work on, or thoughts I feel are worth sharing.
 			</Typography>
 
-			<Box display="flex" alignItems="center">
-				<FilterListIcon />
+			<div
+				style={{
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "center",
+					marginTop: 16,
+				}}
+			>
+				<TextField
+					variant="outlined"
+					size="small"
+					placeholder="Search posts"
+					InputProps={{
+						startAdornment: (
+							<InputAdornment position="start">
+								<FilterListIcon />
+							</InputAdornment>
+						),
+					}}
+					onChange={(event) => {
+						setFilterText(event.target.value)
+					}}
+				/>
+			</div>
+			<div style={{ display: "flex", justifyContent: "center" }}>
 				{[...allTags].map((tag) => (
 					<Chip
 						key={`filter-chip-${tag}`}
@@ -78,52 +118,36 @@ export default function Blog({ data }) {
 						style={{ margin: "16px 8px" }}
 					/>
 				))}
-			</Box>
+			</div>
 
-			{/* <div style={{ display: "flex" }}> */}
-			{posts.map(({ node }) => {
-				const slug = node.frontmatter.slug
-				const title = node.frontmatter.title || slug
-				return (
-					<Card style={{ width: 300, margin: 8 }}>
-						<article>
-							<CardContent>
-								<header>
-									<Typography variant="h5">
-										<Link href={slug}>{title}</Link>
-									</Typography>
-									<Typography variant="subtitle2" gutterBottom>
-										{node.frontmatter.date}
-									</Typography>
-								</header>
-								<section>
-									<Typography
-										dangerouslySetInnerHTML={{
-											__html: node.frontmatter.description || node.excerpt,
-										}}
-									/>
-								</section>
-							</CardContent>
-						</article>
-					</Card>
-					// <article key={slug} style={{ paddingBottom: 24 }}>
-					// 	<header>
-					// 		<Typography variant="h4">
-					// 			<Link href={slug}>{title}</Link>
-					// 		</Typography>
-					// 		<Typography variant="subtitle2">{node.frontmatter.date}</Typography>
-					// 	</header>
-					// 	<section>
-					// 		<Typography
-					// 			dangerouslySetInnerHTML={{
-					// 				__html: node.frontmatter.description || node.excerpt,
-					// 			}}
-					// 		/>
-					// 	</section>
-					// </article>
-				)
-			})}
-			{/* </div> */}
+			<div style={{ display: "flex", justifyContent: "center" }}>
+				{posts.map(({ node }) => {
+					const { slug, title, description } = node.frontmatter
+					const image = node.frontmatter.image?.childImageSharp?.fluid
+					return (
+						<Card key={slug} className="card">
+							<article>
+								<CardContent>
+									<header>
+										<Typography variant="h5">
+											<Link href={slug}>{title}</Link>
+										</Typography>
+									</header>
+									<section>
+										<Typography
+											gutterBottom
+											dangerouslySetInnerHTML={{
+												__html: description || node.excerpt,
+											}}
+										/>
+										{image?.src && <Image fluid={image} alt="A branching tree." />}
+									</section>
+								</CardContent>
+							</article>
+						</Card>
+					)
+				})}
+			</div>
 		</Layout>
 	)
 }
@@ -143,11 +167,17 @@ export const pageQuery = graphql`
 				node {
 					excerpt
 					frontmatter {
-						date(formatString: "MMMM DD, YYYY")
 						slug
 						title
 						description
 						tags
+						image {
+							childImageSharp {
+								fluid(maxWidth: 256) {
+									...GatsbyImageSharpFluid
+								}
+							}
+						}
 					}
 				}
 			}
