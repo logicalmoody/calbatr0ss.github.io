@@ -16,12 +16,7 @@ export default function Gallery({ data }) {
 
 	return (
 		<Layout>
-			<SEO
-				title="Photo Gallery"
-				description="Calvin Moody photo gallery"
-				// image={post.frontmatter.image.childImageSharp.sizes.src}
-				pathname="/gallery"
-			/>
+			<SEO title="Photo Gallery" description="Calvin Moody photo gallery" pathname="/gallery" />
 			<div style={{ textAlign: "center" }}>
 				<Typography variant="h3" gutterBottom>
 					Photo Gallery
