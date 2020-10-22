@@ -1,5 +1,5 @@
 ---
-photo: "DSCF1949-web.jpg"
+photo: "../images/DSCF1949-web.jpg"
 slug: "/gallery/running-shorebird"
 date: "2020-08-26"
 title: "Running Shorebird"

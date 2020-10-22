@@ -48,7 +48,7 @@ export const imagesQuery = graphql`
 						caption
 						photo {
 							childImageSharp {
-								thumb: fluid(maxHeight: 270) {
+								thumb: fluid(maxHeight: 300, maxWidth: 300) {
 									...GatsbyImageSharpFluid
 								}
 								full: fluid(maxWidth: 2048) {

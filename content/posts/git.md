@@ -2,7 +2,7 @@
 title: "Git Gud: A Practical Guide to Git & GitHub"
 slug: "/blog/git-gud"
 date: "2020-10-20"
-image: "../images/DSCF6153.JPG"
+image: "../images/DSCF6153-web.jpg"
 tags: "tech,git"
 description: "Supercharge your development workflow with Git and GitHub."
 ---

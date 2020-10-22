@@ -1,5 +1,5 @@
 ---
-photo: "DSCF1774-web.jpg"
+photo: "../images/DSCF1774-web.jpg"
 slug: "/gallery/assateague-swamp"
 date: "2020-08-26"
 title: "Assateague Swamp"

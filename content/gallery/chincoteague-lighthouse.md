@@ -1,5 +1,5 @@
 ---
-photo: "DSCF1697-web.jpg"
+photo: "../images/DSCF1697-web.jpg"
 slug: "/gallery/chincoteague-lighthouse"
 date: "2020-08-25"
 title: "Chincoteague Lighthouse"

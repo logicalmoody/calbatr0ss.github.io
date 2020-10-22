@@ -1,5 +1,5 @@
 ---
-photo: "DSCF2496-web.jpg"
+photo: "../images/DSCF2496-web.jpg"
 slug: "/gallery/anhinga"
 date: "2020-09-26"
 title: "Anhinga"

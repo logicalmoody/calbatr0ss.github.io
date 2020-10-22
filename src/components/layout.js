@@ -8,7 +8,7 @@ export default function Layout({ children }) {
 	return (
 		<div className="page-container">
 			<NavBar />
-			<Container className="page-content" maxWidth="md">
+			<Container className="page-content" maxWidth="lg">
 				{children}
 			</Container>
 			<Footer />
