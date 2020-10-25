@@ -1,7 +1,7 @@
 ---
 title: "Git Gud: A Practical Guide to Git & GitHub"
 slug: "/blog/git-gud"
-date: "2020-10-20"
+date: "2020-10-25"
 image: "../images/DSCF6153-web.jpg"
 tags: "tech,git"
 description: "Supercharge your development workflow with Git and GitHub."
@@ -162,3 +162,5 @@ Joins the branch `some-branch-name` with your currently selected branch. This jo
 [The Git Flow](https://guides.github.com/introduction/flow/)
 
 [GitHub Forking Guide](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
+
+[Dangit, Git!?!](https://dangitgit.com/)
