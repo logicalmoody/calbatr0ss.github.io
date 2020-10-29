@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
-import Typography from "@material-ui/core/Typography"
+import { Typography } from "@material-ui/core"
 import Layout from "../components/layout"
 import "@browniebroke/gatsby-image-gallery/dist/style.css"
 import SEO from "../components/seo"

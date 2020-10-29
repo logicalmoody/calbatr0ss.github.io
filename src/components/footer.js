@@ -1,13 +1,12 @@
 import React from "react"
-import IconButton from "@material-ui/core/IconButton"
-import Tooltip from "@material-ui/core/Tooltip"
-import Link from "@material-ui/core/Link"
-import Typography from "@material-ui/core/Typography"
-import GitHubIcon from "@material-ui/icons/GitHub"
-import InstagramIcon from "@material-ui/icons/Instagram"
-import TwitterIcon from "@material-ui/icons/Twitter"
-import ControllerIcon from "@material-ui/icons/VideogameAsset"
-import LinkedInIcon from "@material-ui/icons/LinkedIn"
+import { IconButton, Link, Tooltip, Typography } from "@material-ui/core"
+import {
+	GitHub as GitHubIcon,
+	Instagram as InstagramIcon,
+	Twitter as TwitterIcon,
+	VideogameAsset as ControllerIcon,
+	LinkedIn as LinkedInIcon,
+} from "@material-ui/icons"
 import { gitHubUrl, instagramUrl, twitterUrl, linkedInUrl, itchUrl } from "../constants"
 import "../styles/footer.css"
 

@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
-import Typography from "@material-ui/core/Typography"
-import TextField from "@material-ui/core/TextField"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import Chip from "@material-ui/core/Chip"
-import Link from "@material-ui/core/Link"
-import FilterListIcon from "@material-ui/icons/FilterList"
-import InputAdornment from "@material-ui/core/InputAdornment"
+import {
+	Typography,
+	TextField,
+	Card,
+	CardContent,
+	Chip,
+	Link,
+	InputAdornment,
+} from "@material-ui/core"
+import { FilterList as FilterListIcon } from "@material-ui/icons"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../styles/blog.css"
@@ -127,24 +129,18 @@ export default function Blog({ data }) {
 						const image = node.frontmatter.image?.childImageSharp?.fluid
 						return (
 							<Card key={slug} className="card">
-								<article>
-									<CardContent>
-										<header>
-											<Typography variant="h5">
-												<Link href={slug}>{title}</Link>
-											</Typography>
-										</header>
-										<section>
-											<Typography
-												gutterBottom
-												dangerouslySetInnerHTML={{
-													__html: description || node.excerpt,
-												}}
-											/>
-											{image?.src && <Image fluid={image} alt="A branching tree." />}
-										</section>
-									</CardContent>
-								</article>
+								<CardContent>
+									<Typography variant="h5">
+										<Link href={slug}>{title}</Link>
+									</Typography>
+									<Typography
+										gutterBottom
+										dangerouslySetInnerHTML={{
+											__html: description || node.excerpt,
+										}}
+									/>
+									{image?.src && <Image fluid={image} alt="A branching tree." />}
+								</CardContent>
 							</Card>
 						)
 					})

@@ -1,9 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
-import Typography from "@material-ui/core/Typography"
-import Button from "@material-ui/core/Button"
-import TwitterIcon from "@material-ui/icons/Twitter"
+import { Button, Typography } from "@material-ui/core"
+import { Twitter as TwitterIcon } from "@material-ui/icons"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { twitterIntentUrl, twitterHandle } from "../constants"
@@ -23,20 +22,22 @@ export default function BlogPost({ data, location }) {
 				pathname={slug}
 				article
 			/>
-			<Typography variant="h3" align="center" gutterBottom>
-				{title}
-			</Typography>
-			{image?.src && <Image fluid={image} alt="A branching tree." />}
-			<div style={{ padding: "16px 0" }}>
-				<Typography variant="h5" align="center">
-					<em>{description}</em>
+			<article>
+				<Typography variant="h3" align="center" gutterBottom>
+					{title}
 				</Typography>
-			</div>
-			<hr />
-			<div
-				style={{ overflowWrap: "break-word", wordWrap: "break-word", hyphens: "auto" }}
-				dangerouslySetInnerHTML={{ __html: post.html }}
-			/>
+				{image?.src && <Image fluid={image} alt="Decorative image." />}
+				<div style={{ padding: "16px 0" }}>
+					<Typography variant="h5" align="center">
+						<em>{description}</em>
+					</Typography>
+				</div>
+				<hr />
+				<div
+					style={{ overflowWrap: "break-word", wordWrap: "break-word", hyphens: "auto" }}
+					dangerouslySetInnerHTML={{ __html: post.html }}
+				/>
+			</article>
 			<hr />
 			<div style={{ display: "flex" }}>
 				<div style={{ flexGrow: 1 }}>
