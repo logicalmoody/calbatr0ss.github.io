@@ -48,5 +48,6 @@ module.exports = {
 				exclude: [`/gallery/*`],
 			},
 		},
+		`gatsby-plugin-robots-txt`,
 	],
 }
