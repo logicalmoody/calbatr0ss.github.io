@@ -5,6 +5,7 @@ module.exports = {
 		siteUrl: "https://www.calmoody.com",
 		titleTemplate: `%s | Calvin Moody`,
 		twitterUsername: "@calbatr0ss",
+		image: "/cal.jpg",
 	},
 	plugins: [
 		`gatsby-plugin-top-layout`,
