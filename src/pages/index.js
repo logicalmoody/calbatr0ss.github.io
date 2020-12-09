@@ -16,7 +16,7 @@ export default function Home({ data }) {
 				image={heroImage.sizes.src}
 				pathname="/"
 			/>
-			<Image fluid={heroImage} className="hero" alt="Calvin Moody" data-testid="hero-image" />
+			<Image fluid={heroImage} className="hero" alt="Cal Moody" data-testid="hero-image" />
 			<div style={{ textAlign: "center" }}>
 				<Typography variant="h3" gutterBottom>
 					Hey, I'm Cal.
@@ -38,7 +38,7 @@ export default function Home({ data }) {
 
 export const heroImageQuery = graphql`
 	query HeroImage {
-		image: file(name: { eq: "cal" }, sourceInstanceName: { eq: "images" }) {
+		image: file(name: { eq: "cal_moody" }, sourceInstanceName: { eq: "images" }) {
 			childImageSharp {
 				fluid(maxWidth: 500) {
 					...GatsbyImageSharpFluid
