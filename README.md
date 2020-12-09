@@ -6,11 +6,11 @@ Calvin Moody's personal website.
 
 Get started locally
 
-`npm run develop`
+`yarn run develop`
 
 Build and deploy to GitHub Pages
 
-`npm run deploy`
+`yarn run deploy`
 
 ## 🔧 Dependencies
 
