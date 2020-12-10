@@ -67,14 +67,14 @@ export default function NavBar() {
 				icon={<CameraIcon />}
 				style={{ marginLeft: 16 }}
 			/>
-			<NavBarButton
+			{/* <NavBarButton
 				mobile={mobile}
 				link={resumeUrl}
 				newTab
 				title="Resume"
 				icon={<DescriptionIcon />}
 				style={{ marginLeft: 16 }}
-			/>
+			/> */}
 		</>
 	)
 
