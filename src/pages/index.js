@@ -26,8 +26,8 @@ export default function Home({ data }) {
 				</Typography>
 			</div>
 			<Typography>
-				I'm a Senior Software Engineer at The Home Depot with a focus on test-driven, quality code.
-				I specialize in UI design because I believe that interfaces are the most important bridge
+				I'm a Full Stack Engineer at Facet Wealth with a focus on test-driven, quality code. I
+				specialize in UI design because I believe that interfaces are the most important bridge
 				between users and technology. I graduated from Clemson University with a B.S. in Computer
 				Science in 2017. I've participated in hackathons for Code for Atlanta and enjoy game
 				development and 3D printing.
