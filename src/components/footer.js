@@ -3,14 +3,14 @@ import { IconButton, Link, Tooltip, Typography } from "@material-ui/core"
 import {
 	GitHub as GitHubIcon,
 	Instagram as InstagramIcon,
-	Twitter as TwitterIcon,
 	VideogameAsset as ControllerIcon,
 	LinkedIn as LinkedInIcon,
 } from "@material-ui/icons"
-import { gitHubUrl, instagramUrl, twitterUrl, linkedInUrl, itchUrl } from "../constants"
+import MastodonIcon from "../assets/icons/mastodon"
+import { gitHubUrl, instagramUrl, mastodonUrl, linkedInUrl, itchUrl } from "../constants"
 import "../styles/footer.css"
 
-function FooterIconButton({ title, link, icon }) {
+function FooterIconButton({ title, link, icon, ...rest }) {
 	return (
 		<Tooltip key={title} title={title} enterDelay={500}>
 			<Link
@@ -18,6 +18,7 @@ function FooterIconButton({ title, link, icon }) {
 				target="_blank"
 				rel="noopener"
 				data-testid={`footer-${title.toLowerCase()}-link`}
+				{...rest}
 			>
 				<IconButton>{icon}</IconButton>
 			</Link>
@@ -41,7 +42,7 @@ export default function Footer() {
 					<Typography variant="h6">Find me on the web</Typography>
 					<FooterIconButton title="LinkedIn" link={linkedInUrl} icon={<LinkedInIcon />} />
 					<FooterIconButton title="GitHub" link={gitHubUrl} icon={<GitHubIcon />} />
-					<FooterIconButton title="Twitter" link={twitterUrl} icon={<TwitterIcon />} />
+					<FooterIconButton title="Mastodon" link={mastodonUrl} rel="me" icon={<MastodonIcon />} />
 					<FooterIconButton title="Instagram" link={instagramUrl} icon={<InstagramIcon />} />
 					<FooterIconButton title="Games" link={itchUrl} icon={<ControllerIcon />} />
 				</div>
