@@ -25,7 +25,7 @@ export default function Home({ data }) {
 					Software engineer, photographer, maker.
 				</Typography>
 			</div>
-			<Typography>
+			<Typography gutterBottom>
 				I'm a Senior Software Engineer with 6+ years of experience, currently building the future of
 				financial planning at Facet. I focus on the quality code, reliable testing, and the
 				intersection of humans and technology because I believe that good interfaces are the most
