@@ -22,15 +22,19 @@ export default function Home({ data }) {
 					Hey, I'm Cal.
 				</Typography>
 				<Typography variant="h4" gutterBottom>
-					Full stack software engineer, game maker, and photographer.
+					Software engineer, photographer, maker.
 				</Typography>
 			</div>
 			<Typography>
-				I'm a Full Stack Engineer at Facet Wealth with a focus on test-driven, quality code. I
-				specialize in UI design because I believe that interfaces are the most important bridge
-				between users and technology. I graduated from Clemson University with a B.S. in Computer
-				Science in 2017. I've participated in hackathons for Code for Atlanta and enjoy game
-				development and 3D printing.
+				I'm a Senior Software Engineer with 6+ years of experience, currently building the future of
+				financial planning at Facet. I focus on the quality code, reliable testing, and the
+				intersection of humans and technology because I believe that good interfaces are the most
+				important bridge between users and technology. I graduated from Clemson University with a
+				B.S. in Computer Science in 2017.
+			</Typography>
+			<Typography>
+				I pursue tons of hobbies and projects outside of work such as photography, 3D printing,
+				modifying/riding my Onewheel, and loads of DIY home renovations.
 			</Typography>
 		</Layout>
 	)
